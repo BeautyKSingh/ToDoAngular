@@ -1,4 +1,3 @@
-<!-- <hr class="new"> -->
 <div class="container">
     <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Search</mat-label>
@@ -12,20 +11,24 @@
     </div>
 </div>
 
-<div class="rectangle" *ngFor="let i of  list">
-    <div class=" flex-container">
-        <div class="flex-item-left">
-            <p class="item_name"> {{i.name}}</p>
-            <p class="item_description">{{i.description}}</p>
-        </div>
-        <div class="flex-item-right">
-            <!-- <button class="action_button">Delete</button><br>
-            <button class="action_button">Edit</button> -->
-            <button mat-raised-button color="primary" class="action_button"><mat-icon>edit</mat-icon>Edit</button><br>
-            <button mat-raised-button color="accent" class="action_button"
-                (click)="delete(i.id)"><mat-icon>delete_outline</mat-icon>Delete</button>
+<ng-container *ngIf="list.length > 0; else noResult">
+    <div class="rectangle" *ngFor="let i of list">
+        <div class="flex-container">
+            <div class="flex-item-left">
+                <p class="item_name"> {{i.name}}</p>
+                <p class="item_description">{{i.description}}</p>
+            </div>
+            <div class="flex-item-right">
+                <button mat-raised-button color="primary" class="action_button"><mat-icon>edit</mat-icon>Edit</button><br>
+                <button mat-raised-button color="accent" class="action_button"
+                    (click)="delete(i.id)"><mat-icon>delete_outline</mat-icon>Delete</button>
+            </div>
         </div>
     </div>
+</ng-container>
 
-
-</div>
+<ng-template #noResult>
+    <div>
+        No Result Found.
+    </div>
+</ng-template>
