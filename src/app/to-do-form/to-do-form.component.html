@@ -1,0 +1,27 @@
+<span class="head">Create Task</span>
+
+<mat-icon class="cancel" [mat-dialog-close]="false">close</mat-icon>
+
+<div class="horizontal-line"></div>
+
+<div class="form">
+    <form class="example-form" [formGroup]="UserForm">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput formControlName="name" placeholder="Name">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Description</mat-label>
+            <input type="text" matInput formControlName="description" placeholder="Description">
+        </mat-form-field>
+
+        <!-- <input type="checkbox" name="checkbox1" value="checkbox">
+    <label for="checkbox1">Check the box to make notes mandatory with discription</label><br> -->
+    </form>
+</div>
+<div class="horizontal-line"></div>
+<div class="button">
+    <button mat-raised-button class="action_button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary" class="action_button" (click)="onSubmit()">Save</button>
+</div>
